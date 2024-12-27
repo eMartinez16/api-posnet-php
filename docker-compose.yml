@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8080:80"
+    working_dir: /var/www/html
+    command: bash -c "php -S 0.0.0.0:80 -t ."
+    environment:
+      - PHP_MEMORY_LIMIT=512M
